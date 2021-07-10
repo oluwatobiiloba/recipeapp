@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recipeapp/list.dart';
-import 'package:recipeapp/recipeview.dart';
-import 'data.dart';
+import 'package:recipeapp/constants/list.dart';
+import 'package:recipeapp/Screens/recipeview.dart';
+import '../constants/data.dart';
 import 'package:multi_sort/multi_sort.dart';
 
 class Homeview extends StatefulWidget {
@@ -68,7 +68,7 @@ class _HomeviewState extends State<Homeview> {
               child: Padding(
                 padding: const EdgeInsets.only(left :25.0,right: 25.0),
                 child: Container(
-                  height: 60,
+                  height: 80,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -175,6 +175,7 @@ class _HomeviewState extends State<Homeview> {
     List<Widget> list = [];
     for (var i = 0 ; i < recipes.length; i++){
       list.add(buildRecipe(recipes[i],i));
+      print(list);
     }
     return list;
 
@@ -238,7 +239,7 @@ class _HomeviewState extends State<Homeview> {
                     Icon(Icons.favorite_border),
                   ],
                 ),
-                // buildRecipetime(recipe.time.toString() + ' mins'),
+
               ],
             )
             

@@ -70,6 +70,21 @@ buildRecipeTile(String text){
     ),
   );
 }
+buildRecipeTile2(String text){
+  return Padding(
+    padding: EdgeInsets.only(bottom: 8),
+    child: Text(
+      text,
+      overflow: TextOverflow.ellipsis,
+      style: GoogleFonts.openSans(
+        fontSize: 22,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+
+      ),
+    ),
+  );
+}
 
 buildRecipesubtile(String text){
   return Padding(
@@ -83,6 +98,7 @@ buildRecipesubtile(String text){
     ),
   );
 }
+
 
 buildRecipecalories(String text){
   return Padding(

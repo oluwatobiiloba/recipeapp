@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'cooview.dart';
-import 'data.dart';
+import '../constants/data.dart';
 
 
 
@@ -104,10 +104,11 @@ class RecipeView extends StatelessWidget{
               ),
               Padding(padding: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
                 child: Container(
-                  width: 320,
+                  width: 500,
                   height: 320,
                   alignment: Alignment.center,
-                  child: Image.asset(recipe.image),
+                  child: Hero(tag: recipe.image,
+                      child: ClipRRect(child: Image.asset(recipe.image),borderRadius: BorderRadius.circular(15),)),
                 ),
               ),
               Padding(
