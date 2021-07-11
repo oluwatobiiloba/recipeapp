@@ -11,7 +11,7 @@ class LoginPage extends StatelessWidget{
   Widget build(BuildContext context) {
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
       //backgroundColor: Colors.white,
       body: SingleChildScrollView(

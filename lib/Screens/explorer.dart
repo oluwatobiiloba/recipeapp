@@ -27,7 +27,11 @@ class _HomeviewState extends State<Homeview> {
         elevation: 0,
         actions: [
           Padding(padding: EdgeInsets.only(right: 16),
-          child: Icon(Icons.settings,color: Colors.black,),)
+          child: GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, '/settings');
+              },
+              child: Icon(Icons.settings,color: Colors.black,)),)
         ],
       ),
       body: SingleChildScrollView(

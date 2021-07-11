@@ -11,6 +11,7 @@ import 'package:recipeapp/firebase/authentication.dart';
 import 'Login_and_signup/login.dart';
 import 'Login_and_signup/signup.dart';
 import 'Screens/explorer.dart';
+import 'Screens/settings.dart';
 import 'constants/list.dart';
 
 Future<void> main() async{
@@ -47,6 +48,7 @@ class Homescreen extends StatelessWidget{
           // When navigating to the "/second" route, build the SecondScreen widget.
           '/login': (context) => LoginPage(),
           '/signup': (context) => SignupPage(),
+          '/settings':(context) => SettingsPage(),
 
         }
 
