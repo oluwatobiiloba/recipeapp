@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recipeapp/firebase/authentication.dart';
+import 'package:provider/provider.dart';
 
 class SignupPage extends StatefulWidget{
   @override
@@ -7,6 +9,10 @@ class SignupPage extends StatefulWidget{
 }
 
 class _SignupPageState extends State<SignupPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
 
@@ -55,7 +61,7 @@ class _SignupPageState extends State<SignupPage> {
                   children: [
                     TextField(
                       decoration: InputDecoration(
-                          labelText: "Business Name",
+                          labelText: "Name",
                           labelStyle: TextStyle(
                               fontFamily: 'Bradley Hand',
                               fontWeight: FontWeight.bold,
@@ -65,8 +71,9 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     SizedBox(height: 15.00,),
                     TextField(
+                        controller: emailController,
                       decoration: InputDecoration(
-                          labelText: "Business Email",
+                          labelText: "Email",
                           labelStyle: TextStyle(
                               fontFamily: 'Bradley Hand',
                               fontWeight: FontWeight.bold,
@@ -76,6 +83,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     SizedBox(height: 15.00,),
                     TextField(
+                      controller: nameController,
                       decoration: InputDecoration(
                           labelText: "Name",
                           labelStyle: TextStyle(
@@ -120,6 +128,7 @@ class _SignupPageState extends State<SignupPage> {
                     SizedBox(height: 15.00,),
 
                     TextField(
+                      controller: passwordController,
                       decoration: InputDecoration(
                         labelText: "Password",
                         labelStyle: TextStyle(
@@ -161,7 +170,13 @@ class _SignupPageState extends State<SignupPage> {
                         borderRadius: BorderRadius.circular(20.0),
                         child: InkWell(
                           borderRadius: BorderRadius.circular(20.0),
-                          onTap: (){},
+                          onTap: (){
+                            context.read<AuthenticationService>().signUp(
+                                email: emailController.text.trim(),
+                                password: passwordController.text.trim(),
+                              name: nameController.text.toUpperCase().trim(),
+                            );
+                          },
                           child: Center(
                             child: Text('SIGNUP',
                               style: TextStyle(

@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recipeapp/firebase/authentication.dart';
+import 'package:provider/provider.dart';
 
-class LoginPage extends StatefulWidget{
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-
+class LoginPage extends StatelessWidget{
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     TextField(
+                controller: emailController,
                       decoration: InputDecoration(
                         labelText: "Email",
                         labelStyle: TextStyle(
@@ -82,6 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SizedBox(height: 15.00,),
                     TextField(
+                      controller: passwordController,
                       decoration: InputDecoration(
                           labelText: "Password",
                           labelStyle: TextStyle(
@@ -120,9 +120,13 @@ class _LoginPageState extends State<LoginPage> {
                           child: InkWell(
                             borderRadius: BorderRadius.circular(20.0),
                             onTap: (){
-                              Navigator.of(context).pushNamed('/');
+                              context.read<AuthenticationService>().signIn(
+                                email: emailController.text.trim(),
+                                  password: passwordController.text.trim()
+                              );
 
                             },
+
                             child: Center(
                               child: Text('LOGIN',
                                 style: TextStyle(

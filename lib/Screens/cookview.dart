@@ -17,7 +17,6 @@ class _CookViewState extends State<CookView> {
   int current_step = 0;
 
   @override
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
@@ -201,6 +200,33 @@ class _CookViewState extends State<CookView> {
                             }
                           });
                         },
+                        controlsBuilder: (BuildContext,{void Function()? onStepCancel,void Function()? onStepContinue}){
+                          return Row(
+                            children: [
+                              SizedBox(height: 70,),
+                              Container(
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.blue,),
+                                height: 35,
+                                width: 60,
+
+                                child: GestureDetector(
+                                  onTap: onStepContinue,
+                                  child: Center(child: Text("Next",style: TextStyle(color: Colors.white,fontSize: 15),)),
+                                ),
+                              ),
+                              SizedBox(width: 20,),
+                              Container(
+                                height: 20,
+                                width: 60,
+                                color: Colors.transparent,
+                                child: GestureDetector(
+                                  onTap: onStepCancel,
+                                  child: Center(child: Text("Previous",style: TextStyle(color: Colors.black,fontSize: 15),)),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
                       ),
 
 
@@ -261,7 +287,7 @@ class _CookViewState extends State<CookView> {
     var stepdata = widget.recipe.steps;
     for (var i = 0; i < stepdata.length; i++) {
       steps.add(Step(
-        content: Text('${stepdata[i]}'),
+        content: Text('${stepdata[i]}',style: TextStyle(fontSize: 18),),
         title: Text('Step ${i + 1}'),
         isActive: true,
       ));

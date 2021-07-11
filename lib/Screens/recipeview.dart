@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'cooview.dart';
+import 'cookview.dart';
 import '../constants/data.dart';
 
 
@@ -46,9 +46,9 @@ class RecipeView extends StatelessWidget{
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Container(
-          margin: EdgeInsets.only(left: 30,top: 15,right: 30, bottom: 30),
-          width: MediaQuery.of(context).size.width*0.9,
-          height: MediaQuery.of(context).size.height*0.82,
+          margin: EdgeInsets.only(left: 25,top: 15,right: 25, bottom: 30),
+          width: MediaQuery.of(context).size.width*0.93,
+          height: MediaQuery.of(context).size.height*0.87,
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
               color: Colors.white,
@@ -102,13 +102,13 @@ class RecipeView extends StatelessWidget{
                   ),
                 ),
               ),
-              Padding(padding: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),
+              Padding(padding: EdgeInsets.only(left: 10,right: 10,top: 2,bottom: 5),
                 child: Container(
-                  width: 500,
-                  height: 320,
+                  width: 600,
+                  height: 350,
                   alignment: Alignment.center,
                   child: Hero(tag: recipe.image,
-                      child: ClipRRect(child: Image.asset(recipe.image),borderRadius: BorderRadius.circular(15),)),
+                      child: ClipRRect(child: Image.asset(recipe.image,fit: BoxFit.fitWidth,),borderRadius: BorderRadius.circular(15),)),
                 ),
               ),
               Padding(
@@ -121,7 +121,7 @@ class RecipeView extends StatelessWidget{
                       Column(
                         children: [
                           Icon(Icons.restaurant_menu_outlined, size: 40,color: Colors.blue,),
-                          Text(recipe.calories.toString() + ' Kcal' ,style: GoogleFonts.roboto(color: Colors.blue  )
+                          Text(recipe.calories.toString() + ' Kcal' ,style: GoogleFonts.roboto(color: Colors.blue,fontSize: 18 )
                           )
                         ],
                       ),
@@ -129,7 +129,7 @@ class RecipeView extends StatelessWidget{
                       Column(
                         children: [
                           Icon(Icons.timer, size: 40,color: Colors.blue,),
-                          Text(recipe.time.toString() + ' mins',style: GoogleFonts.roboto(color: Colors.blue  )
+                          Text(recipe.time.toString() + ' mins',style: GoogleFonts.roboto(color: Colors.blue ,fontSize: 18 )
                           )
                         ],
                       ),
@@ -137,7 +137,7 @@ class RecipeView extends StatelessWidget{
                       Column(
                         children: [
                           Icon(FlutterIcons.stove_mco, size: 40,color: Colors.blue,),
-                          Text(recipe.difficulty != null ? recipe.difficulty:'N/A' ,style: GoogleFonts.roboto(color: Colors.blue  ))
+                          Text(recipe.difficulty != null ? recipe.difficulty:'N/A' ,style: GoogleFonts.roboto(color: Colors.blue,fontSize: 18  ))
                         ],
                       ),
 
@@ -151,8 +151,8 @@ class RecipeView extends StatelessWidget{
                   Center(
                     child: Expanded(
                       child: Container(
-                        height: 70,
-                        width: 70,
+                        height: 90,
+                        width: 90,
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
@@ -160,14 +160,14 @@ class RecipeView extends StatelessWidget{
                                 offset: Offset(0, 1),
                                 blurRadius: 2.0)
                           ],
-                          borderRadius: BorderRadius.circular(35.0),
+                          borderRadius: BorderRadius.circular(45.0),
                           color: Colors.white,
                         ),
                         child: Material(
-                          borderRadius: BorderRadius.circular(35.0),
-                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(45.0),
+                          color: Colors.blue,
                           child: InkWell(
-                            borderRadius: BorderRadius.circular(35.0),
+                            borderRadius: BorderRadius.circular(45.0),
                             onTap: () {
                               Navigator.push(
                                   context, MaterialPageRoute(builder: (context) => CookView(recipe: recipe))
@@ -177,7 +177,7 @@ class RecipeView extends StatelessWidget{
                             splashFactory: InkSplash.splashFactory,
                             child: Container(
                               padding: EdgeInsets.all(12.0),
-                              child: Center(child: Icon(FlutterIcons.chef_hat_mco,size: 30,color: Colors.blueGrey,)),
+                              child: Center(child: Icon(FlutterIcons.chef_hat_mco,size: 45,color: Colors.white,)),
                             ),
                           ),
                         ),
