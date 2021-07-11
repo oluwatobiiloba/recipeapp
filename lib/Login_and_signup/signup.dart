@@ -82,18 +82,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                     ),
                     SizedBox(height: 15.00,),
-                    TextField(
-                      controller: nameController,
-                      decoration: InputDecoration(
-                          labelText: "Name",
-                          labelStyle: TextStyle(
-                              fontFamily: 'Bradley Hand',
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey
-                          )
-                      ),
-                    ),
-                    SizedBox(height: 15.00,),
+
                     TextField(
                       decoration: InputDecoration(
                           labelText: "Address",
@@ -106,7 +95,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     TextField(
                       decoration: InputDecoration(
-                          labelText: "Country",
+                          labelText: "State",
                           labelStyle: TextStyle(
                               fontFamily: 'Bradley Hand',
                               fontWeight: FontWeight.bold,
@@ -117,7 +106,7 @@ class _SignupPageState extends State<SignupPage> {
                     SizedBox(height: 15.00,),
                     TextField(
                       decoration: InputDecoration(
-                          labelText: "State",
+                          labelText: "Country",
                           labelStyle: TextStyle(
                               fontFamily: 'Bradley Hand',
                               fontWeight: FontWeight.bold,
@@ -155,19 +144,13 @@ class _SignupPageState extends State<SignupPage> {
 
                     Container(
                       height: 40.0,
-                      decoration:BoxDecoration(
-                        boxShadow: [BoxShadow(
-                          color: Colors.black87.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                        ],) ,
+                      
                       child: Material(
 
                         color: Colors.blue,
                         elevation: 7.0,
                         borderRadius: BorderRadius.circular(20.0),
+
                         child: InkWell(
                           borderRadius: BorderRadius.circular(20.0),
                           onTap: (){
@@ -176,6 +159,7 @@ class _SignupPageState extends State<SignupPage> {
                                 password: passwordController.text.trim(),
                               name: nameController.text.toUpperCase().trim(),
                             );
+                            Navigator.pushNamed(context, '/login');
                           },
                           child: Center(
                             child: Text('SIGNUP',
@@ -192,13 +176,11 @@ class _SignupPageState extends State<SignupPage> {
                     SizedBox(height: 20.0,),
                     Container(
                       height: 40.0,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white,),
-                          borderRadius: BorderRadius.circular(20.0)
-                      ),
+
                       child: Material(
-                        color: Colors.transparent,
+                        color: Colors.white,
                         elevation: 7.0,
+                        borderRadius: BorderRadius.circular(20.0),
 
                         child: InkWell(
                           borderRadius: BorderRadius.circular(20.0),
@@ -211,7 +193,7 @@ class _SignupPageState extends State<SignupPage> {
                               Icon(Icons.arrow_back_ios),
                               Text('Back',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'Bradley Hand',
                                 ),
